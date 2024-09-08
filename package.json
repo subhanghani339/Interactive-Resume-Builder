@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jspdf": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4"
+  }
+}
