@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="form-container">
+        <h1>Dynamic Resume Builder</h1>
+        <form id="resume-form">
+            <h2>Personal Information</h2>
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your full name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email address" required />
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required />
+
+            <label for="profile-pic">Profile Picture URL:</label>
+            <input type="url" id="profile-pic" placeholder="Enter a profile picture URL" required />
+
+            <h2>Education</h2>
+            <div id="education-section">
+                <div class="education-item">
+                    <label for="degree">Degree:</label>
+                    <input type="text" class="degree" placeholder="e.g., BSc in Computer Science" required />
+
+                    <label for="institution">Institution:</label>
+                    <input type="text" class="institution" placeholder="e.g., ABC University" required />
+
+                    <label for="year">Year:</label>
+                    <input type="text" class="year" placeholder="e.g., 2018-2022" required />
+                </div>
+            </div>
+            <button type="button" id="add-education">Add More Education</button>
+
+            <h2>Skills</h2>
+            <div id="skills-section">
+                <input type="text" class="skill" placeholder="Enter a skill" required />
+            </div>
+            <button type="button" id="add-skill">Add More Skills</button>
+
+            <h2>Work Experience</h2>
+            <label for="job-title">Job Title:</label>
+            <input type="text" id="job-title" placeholder="e.g., Software Engineer" required />
+
+            <label for="company">Company:</label>
+            <input type="text" id="company" placeholder="e.g., ABC Corp" required />
+
+            <label for="work-year">Years Worked:</label>
+            <input type="text" id="work-year" placeholder="e.g., 2019-2023" required />
+
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <div class="resume" id="resume-display" style="display:none;">
+        <header class="personal-info">
+            <img src="./image/profile-pic-placeholder.png" alt="Profile Picture" class="profile-pic" id="profile-pic-display">
+            <h1 id="name-display">Your Name</h1>
+            <p id="email-display">Email: your.email@example.com</p>
+            <p id="phone-display">Phone: 123-456-7890</p>
+        </header>
+
+        <section class="education">
+            <h2>Education</h2>
+            <ul id="education-list"></ul>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul id="skills-list"></ul>
+        </section>
+
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <ul id="work-list"></ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
