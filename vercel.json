@@ -1,12 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/milestone1/(.*)",
-      "dest": "/milestone1/$1"
-    },
-    {
-      "src": "/milestone3/(.*)",
-      "dest": "/milestone3/$1"
+      "source": "/milestone3/(.*)",
+      "destination": "/milestone3/$1"
     }
   ]
 }
