@@ -3,6 +3,10 @@
     {
       "source": "/milestone3/(.*)",
       "destination": "/milestone3/$1"
+    },
+    {
+      "source": "/milestone1/(.*)",
+      "destination": "/milestone1/$1"
     }
   ]
 }
