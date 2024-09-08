@@ -107,6 +107,14 @@ function validateForm(): boolean {
     return isValid;
 }
 
+// Helper function to check image validity
+function loadImageWithFallback(imgElement: HTMLImageElement, src: string) {
+    imgElement.src = src;
+    imgElement.onerror = () => {
+        imgElement.src = "https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png";
+    };
+}
+
 // Form submit event listener
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -121,13 +129,13 @@ form.addEventListener("submit", (event) => {
     const name = (document.getElementById("name") as HTMLInputElement).value.trim();
     const email = (document.getElementById("email") as HTMLInputElement).value.trim();
     const phone = (document.getElementById("phone") as HTMLInputElement).value.trim();
-    const profilePic = (document.getElementById("profile-pic") as HTMLInputElement).value.trim() || "./image/profile-pic-placeholder.png";
+    const profilePic = (document.getElementById("profile-pic") as HTMLInputElement).value.trim() || "https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png";
 
     // Update personal info in resume
     nameDisplay.textContent = name;
     emailDisplay.textContent = `Email: ${email}`;
     phoneDisplay.textContent = `Phone: ${phone}`;
-    profilePicDisplay.src = profilePic;
+    loadImageWithFallback(profilePicDisplay, profilePic);
 
     // Update education
     const educationItems = educationSection.querySelectorAll(".education-item");
@@ -161,7 +169,8 @@ form.addEventListener("submit", (event) => {
 
     workList.innerHTML = `<li><strong>${jobTitle}</strong> - ${company} (${workYear})</li>`;
 
-    // Show the resume
+    // Hide the form and show the resume
+    form.style.display = "none";
     resumeDisplay.style.display = "block";
 
     // Show success toast

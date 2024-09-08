@@ -80,6 +80,13 @@ function validateForm() {
     });
     return isValid;
 }
+// Helper function to check image validity
+function loadImageWithFallback(imgElement, src) {
+    imgElement.src = src;
+    imgElement.onerror = function () {
+        imgElement.src = "https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png";
+    };
+}
 // Form submit event listener
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -92,12 +99,12 @@ form.addEventListener("submit", function (event) {
     var name = document.getElementById("name").value.trim();
     var email = document.getElementById("email").value.trim();
     var phone = document.getElementById("phone").value.trim();
-    var profilePic = document.getElementById("profile-pic").value.trim() || "./image/profile-pic-placeholder.png";
+    var profilePic = document.getElementById("profile-pic").value.trim() || "https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png";
     // Update personal info in resume
     nameDisplay.textContent = name;
     emailDisplay.textContent = "Email: ".concat(email);
     phoneDisplay.textContent = "Phone: ".concat(phone);
-    profilePicDisplay.src = profilePic;
+    loadImageWithFallback(profilePicDisplay, profilePic);
     // Update education
     var educationItems = educationSection.querySelectorAll(".education-item");
     educationList.innerHTML = ""; // Clear current list
@@ -125,7 +132,8 @@ form.addEventListener("submit", function (event) {
     var company = document.getElementById("company").value.trim();
     var workYear = document.getElementById("work-year").value.trim();
     workList.innerHTML = "<li><strong>".concat(jobTitle, "</strong> - ").concat(company, " (").concat(workYear, ")</li>");
-    // Show the resume
+    // Hide the form and show the resume
+    form.style.display = "none";
     resumeDisplay.style.display = "block";
     // Show success toast
     showToast("Resume generated successfully!");

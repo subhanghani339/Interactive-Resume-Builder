@@ -8,32 +8,32 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Dynamic Resume Builder</h1>
+        <h1 style="text-align: center;">Dynamic Resume Builder</h1>
         <form id="resume-form">
             <h2>Personal Information</h2>
             
             <label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter your full name" required />
 
-            <label for="email">Email:</label>
+            <label for="email">Email *</label>
             <input type="email" id="email" placeholder="Enter your email address" required />
 
-            <label for="phone">Phone:</label>
+            <label for="phone">Phone *</label>
             <input type="text" id="phone" placeholder="Enter your phone number" required />
 
-            <label for="profile-pic">Profile Picture URL:</label>
-            <input type="url" id="profile-pic" placeholder="Enter a profile picture URL" required />
+            <label for="profile-pic">Profile Picture URL</label>
+            <input type="url" id="profile-pic" placeholder="Enter a profile picture URL (optional)" />
 
             <h2>Education</h2>
             <div id="education-section">
                 <div class="education-item">
-                    <label for="degree">Degree:</label>
+                    <label for="degree">Degree *</label>
                     <input type="text" class="degree" placeholder="e.g., BSc in Computer Science" required />
 
-                    <label for="institution">Institution:</label>
+                    <label for="institution">Institution *</label>
                     <input type="text" class="institution" placeholder="e.g., ABC University" required />
 
-                    <label for="year">Year:</label>
+                    <label for="year">Year *</label>
                     <input type="text" class="year" placeholder="e.g., 2018-2022" required />
                 </div>
             </div>
@@ -46,13 +46,13 @@
             <button type="button" id="add-skill">Add More Skills</button>
 
             <h2>Work Experience</h2>
-            <label for="job-title">Job Title:</label>
+            <label for="job-title">Job Title *</label>
             <input type="text" id="job-title" placeholder="e.g., Software Engineer" required />
 
-            <label for="company">Company:</label>
+            <label for="company">Company *</label>
             <input type="text" id="company" placeholder="e.g., ABC Corp" required />
 
-            <label for="work-year">Years Worked:</label>
+            <label for="work-year">Years Worked *</label>
             <input type="text" id="work-year" placeholder="e.g., 2019-2023" required />
 
             <button type="submit">Generate Resume</button>
@@ -84,8 +84,13 @@
             <h2>Work Experience</h2>
             <ul id="work-list"></ul>
         </section>
+
+        <button id="download-pdf">Download PDF</button>
+
     </div>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </body>
 </html>
