@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/milestone3/(.*)",
-      "destination": "/milestone3/$1"
+      "source": "/milestone-3/(.*)",
+      "destination": "/milestone-3/$1"
     }
   ]
 }
